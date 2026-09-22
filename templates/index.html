@@ -69,14 +69,28 @@
             color: #555;
         }
 
-        /* 新增的 QR Code 卡片圖片樣式 */
-        .card .qr-image {
-            margin-top: 15px;
-            width: 140px;
-            height: 140px;
-            object-fit: contain;
+        /* QR Code 區塊樣式 */
+        .qrcode-section {
+            text-align: center;
+            margin: 40px auto 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            max-width: 200px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .qrcode-section img {
+            max-width: 100%;
+            height: auto;
             border-radius: 8px;
-            border: 1px solid #eee;
+        }
+
+        .qrcode-section p {
+            font-size: 14px;
+            color: #555;
+            margin-top: 8px;
+            margin-bottom: 0;
         }
 
         footer {
@@ -133,15 +147,12 @@
             <p>結合人工智慧工具，提升學習效率與創作能力。</p>
         </div>
 
-        <!-- 成功加入的 QR Code 卡片區塊 -->
-        <div class="card">
-            <a href="#" style="cursor: default; pointer-events: none;">📱 行動版連結</a>
-            <div>
-                <img src="static/images/qr_code.jpg" alt="QR Code" class="qr-image">
-            </div>
-            <p>歡迎掃描 QR Code，分享或瀏覽我的歷程檔案。</p>
-        </div>
+    </div>
 
+    <!-- 這裡加入了 QR Code 區塊 -->
+    <div class="qrcode-section">
+        <img src="static/images/qr_code.jpg" alt="QR Code">
+        <p>掃描查看行動版</p>
     </div>
 </div>
 
