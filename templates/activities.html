@@ -3,45 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ask a Question</title>
+    <title>課外活動紀錄｜鄭庭蓁</title>
+    <!-- 串接與首頁相同的樣式檔與字體 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+        /* 針對活動內頁微調的專屬樣式 */
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #1565c0;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.2s;
         }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            text-align: center;
+        .back-btn:hover {
+            color: #0d47a1;
         }
-        section {
-            margin: 20px;
-        }
-        .form-box {
+        .activity-card {
             background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .activity-card {
+                flex-direction: row;
+            }
+            .activity-img {
+                width: 40%;
+                max-width: 350px;
+            }
+            .activity-content {
+                width: 60%;
+            }
+        }
+        .activity-img {
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            min-height: 200px;
+        }
+        .activity-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .activity-content {
+            padding: 30px;
+        }
+        .activity-tag {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: #1565c0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .activity-content h3 {
+            margin: 0 0 10px 0;
+            color: #1565c0;
+            font-size: 22px;
+        }
+        .activity-meta {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+        .activity-content p {
+            color: #555;
+            line-height: 1.7;
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>課外活動</h1>
-    </header>
-    <section>
-        <div class="form-box">
-            <form action="/activities" method="post">
-                <label for="question">你的問題:</label><br>
-                <input type="text" id="question" name="question" value="{{ question }}"><br><br>
-                <label for="answer">答案:</label><br>
-                <input type="text" id="answer" name="answer" readonly value="{{ answer }}"><br><br>
-                <input type="submit" value="送出">
-                <input type="button" value="回首頁" onclick="window.location.href='/'">
-            </form>
+
+<header>
+    <h1>🌟 課外活動成果</h1>
+    <p>拓展視野，累積多元學習與團隊合作經驗</p>
+</header>
+
+<div class="container">
+    <!-- 返回首頁按鈕 -->
+    <a href="/" class="back-btn">← 返回自我介紹首頁</a>
+
+    <!-- 活動項目一 -->
+    <div class="activity-card">
+        <div class="activity-img">
+            <!-- 圖片放置路徑：static/images/activity1.jpg (若無圖片會自動隱藏或顯示替代文字) -->
+            <img src="{{ url_for('static', filename='images/activity1.jpg') }}" alt="團隊工作坊活動照片" onerror="this.src='https://unsplash.com';">
         </div>
-    </section>
+        <div class="activity-content">
+            <span class="activity-tag">團隊合作</span>
+            <h3>青年領導力與專案企劃工作坊</h3>
+            <div class="activity-meta">活動日期：2025年10月｜主辦單位：校外青年發展協會</div>
+            <p>參與跨校性的專案企劃競賽，與不同學校的夥伴在有限時間內激盪創意。小組共同針對社會議題提出創新企劃，並完成公開簡報分享，從中深刻體會到傾聽溝通與任務分工的關鍵重要性。</p>
+        </div>
+    </div>
+
+    <!-- 活動項目二 -->
+    <div class="activity-card">
+        <div class="activity-img">
+            <!-- 圖片放置路徑：static/images/activity2.jpg -->
+            <img src="{{ url_for('static', filename='images/activity2.jpg') }}" alt="志工服務活動照片" onerror="this.src='https://unsplash.com';">
+        </div>
+        <div class="activity-content">
+            <span class="activity-tag">社會服務</span>
+            <h3>社區關懷與偏鄉線上輔導志工</h3>
+            <div class="activity-meta">活動日期：2026年3月至今｜主辦單位：新北高中學務處</div>
+            <p>利用課後時間主動參與弱勢學童的線上課後輔導服務。除了協助解答課業疑問，更運用生成式 AI 工具設計出生動有趣的客製化黑板塗鴉教材，成功引發孩子們的學習興趣，累積了豐富的教學熱忱與利他經驗。</p>
+        </div>
+    </div>
+
+    <!-- 活動項目三 -->
+    <div class="activity-card">
+        <div class="activity-img">
+            <!-- 圖片放置路徑：static/images/activity3.jpg -->
+            <img src="{{ url_for('static', filename='images/activity3.jpg') }}" alt="科技講座活動照片" onerror="this.src='https://unsplash.com';">
+        </div>
+        <div class="activity-content">
+            <span class="activity-tag">學術擴展</span>
+            <h3>高中生科技與未來趨勢論壇</h3>
+            <div class="activity-meta">活動日期：2026年7月｜主辦單位：大學資訊工程系</div>
+            <p>聆聽業界專家分享數位轉型與人機協作趨勢，全面性拓寬了自己對資訊科技的宏觀視野。講座後我更延伸閱讀相關文獻，並將所學心得實踐於本次自主學習的網頁開發專案中。</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 鄭庭蓁 學習歷程檔案
+</footer>
+
 </body>
 </html>
