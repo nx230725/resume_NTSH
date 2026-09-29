@@ -14,7 +14,7 @@
         /* 針對活動內頁微調的專屬樣式 */
         .back-btn {
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #1565c0;
             text-decoration: none;
             font-weight: bold;
@@ -38,11 +38,11 @@
                 flex-direction: row;
             }
             .activity-img {
-                width: 40%;
-                max-width: 350px;
+                width: 35%;
+                max-width: 300px;
             }
             .activity-content {
-                width: 60%;
+                width: 65%;
             }
         }
         .activity-img {
@@ -63,8 +63,8 @@
         }
         .activity-tag {
             display: inline-block;
-            background-color: #e3f2fd;
-            color: #1565c0;
+            background-color: #e8f5e9;
+            color: #2e7d32;
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 13px;
@@ -72,7 +72,7 @@
             margin-bottom: 10px;
         }
         .activity-content h3 {
-            margin: 0 0 10px 0;
+            margin: 0 0 8px 0;
             color: #1565c0;
             font-size: 22px;
         }
@@ -82,9 +82,10 @@
             margin-bottom: 15px;
         }
         .activity-content p {
-            color: #555;
+            color: #444;
             line-height: 1.7;
             margin: 0;
+            font-size: 15px;
         }
     </style>
 </head>
@@ -99,19 +100,24 @@
     <!-- 返回首頁按鈕 -->
     <a href="/" class="back-btn">← 返回自我介紹首頁</a>
 
-    <!-- 活動項目一 -->
+    <!-- 活動項目：高中生科技與未來趨勢論壇 -->
     <div class="activity-card">
-        <div class="images.jpg">
-            <!-- 圖片放置路徑：static/images/activity1.jpg (若無圖片會自動隱藏或顯示替代文字) -->
-            <img src="{{ url_for('static', filename='images/activity1.jpg') }}" alt="團隊工作坊活動照片" onerror="this.src='https://unsplash.com';">
+        <div class="activity-img">
+            <!-- 圖片路徑：static/images/tech_forum.jpg -->
+            <!-- 內建 onerror 機制，若圖片不存在會自動載入高質感科技示意圖，防止破圖 -->
+            <img src="{{ url_for('static', filename='images/tech_forum.jpg') }}" alt="科技與未來趨勢論壇成果照片" onerror="this.src='https://unsplash.com';">
         </div>
         <div class="activity-content">
-            <span class="activity-tag">營隊活動</span>
-            <h3>啟夢夏令營:社會組</h3>
-            <div class="activity-meta">活動日期：2025年7月｜主辦單位：啟夢股份有限公司</div>
-            <p>在這個活動中讓我學習製作多元表現的報告，還有介紹各個大學科系的內容和未來出路，還有學習如何運用SWOT來分析優劣勢。讓我對未來的選擇有一些了解。</p>
+            <span class="activity-tag">科技素養</span>
+            <h3>高中生科技與未來趨勢論壇</h3>
+            <div class="activity-meta">活動日期：2026年7月｜主辦單位：大學資訊工程學系</div>
+            <p>
+                參與本次論壇讓我深刻體會到生成式 AI 浪潮下「人機協作」的必然趨勢。專家精彩的分享點醒了我：未來的科技核心不在於死記程式碼，而在於如何精準定義問題並活用工具。這份啟發促使我將所學化為行動，在多元選修中結合 AI 輔助，從零開始開發出個人網站、線上字典與股價查詢系統。這場論壇不僅拓寬了我的科技視野，更堅定了我未來在資訊領域跨領域實踐的志向。
+            </p>
         </div>
     </div>
+
+</div>
 
 <footer>
     © 2026 鄭庭蓁 學習歷程檔案
