@@ -108,5 +108,6 @@ def write():
     return render_template('write.html')
 
 
+
 if __name__ == '__main__':
     app.run(debug=True)
