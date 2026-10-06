@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>創意寫作｜鄭庭蓁</title>
+    <!-- 串接與首頁相同的樣式檔與字體 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #1565c0;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+        .back-btn:hover {
+            color: #0d47a1;
+        }
+        .write-container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            line-height: 1.8;
+            color: #333;
+        }
+        .write-container h2 {
+            color: #1565c0;
+            border-bottom: 2px solid #e3f2fd;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .meta-info {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+        .content-section {
+            margin-bottom: 30px;
+        }
+        .content-section h3 {
+            color: #0d47a1;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .highlight-box {
+            background-color: #f5f5f5;
+            padding: 15px 20px;
+            border-left: 5px solid #1565c0;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📝創意寫作</h1>
+    <p>系統化梳理知識，透過文字內化學習成果</p>
+</header>
+
+<div class="container">
+    <!-- 返回首頁按鈕 -->
+    <a href="/" class="back-btn">← 返回自我介紹首頁</a>
+
+    <!-- 寫作內容區塊 -->
+    <div class="write-container">
+        <h2>專題論文與核心心得摘要</h2>
+        <div class="meta-info">作者：鄭庭蓁 ｜ 更新日期：2026年10月</div>
+
+        <div class="content-section">
+            <h3>一、 研究動機與背景</h3>
+            <p>在參與「高中生科技與未來趨勢論壇」後，我深刻體會到當前數位工具對高中生自主學習的巨大衝擊。隨著生成式 AI 與網頁技術的普及，如何透過實作專案（如字典系統、股價查詢）將課本上的理論轉化為應用，成為我本次寫作與專題研究的核心動機。</p>
+        </div>
+
+        <div class="highlight-box">
+            「未來的科技核心不在於死記程式碼，而在於如何精準定義問題並活用工具。」—— 科技論壇反思
+        </div>
+
+        <div class="content-section">
+            <h3>二、 實踐歷程與核心反思</h3>
+            <p>在本次的網頁架設專案中，我挑戰將前端的 CSS 排版與後端的 Flask 框架進行垂直整合。在寫作與除錯的過程中，最困難的往往不是撰寫新功能，而是建立起前後端資料傳遞的邏輯思考。透過系統化的文字記錄，我能清晰地看見自己從盲目嘗試到能精準 debug 的成長軌跡。</p>
+        </div>
+
+        <div class="content-section">
+            <h3>三、 未來展望</h3>
+            <p>這份寫作紀錄不僅僅是成果的陳列，更是我探索資訊科學領域的基石。未來我計畫將這個網站作為長期的數位作品集，持續將多元選修的成果以圖文形式精緻呈現，培養科技素養與文字論述的跨領域軟實力。</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2026 鄭庭蓁 學習歷程檔案
+</footer>
+
+</body>
+</html>
