@@ -103,6 +103,10 @@ def electives():
 def ai():
     return render_template('ai.html')
 
+@app.route('/write')
+def write():
+    return render_template('write.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
