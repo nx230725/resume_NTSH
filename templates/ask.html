@@ -1,47 +1,120 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ask a Question</title>
+    <title>中韓日翻譯字典</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
         }
+
         header {
             background-color: #4CAF50;
             color: white;
             padding: 10px;
             text-align: center;
         }
+
         section {
             margin: 20px;
         }
+
         .form-box {
             background-color: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
+        input, select {
+            padding: 8px;
+            width: 95%;
+            margin-top: 5px;
+        }
+
+        input[type="submit"],
+        input[type="button"] {
+            width: auto;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="button"] {
+            background-color: #777;
+        }
     </style>
 </head>
+
 <body>
+
     <header>
-        <h1>字典</h1>
+        <h1>中韓日翻譯字典</h1>
     </header>
+
     <section>
         <div class="form-box">
-            <form action="/ask" method="post">
-                <label for="question">中文:</label><br>
-                <input type="text" id="question" name="question" value="{{ question }}"><br><br>
-                <label for="answer">韓文:</label><br>
-                <input type="text" id="answer" name="answer" readonly value="{{ answer }}"><br><br>
+
+            <form action="/ask" method="POST">
+
+                <!-- 選擇翻譯語言 -->
+                <label for="language">請選擇翻譯語言：</label><br>
+
+                <select id="language" name="language">
+                    <option value="ko">韓文</option>
+                    <option value="jp">日文</option>
+                </select>
+
+                <br><br>
+
+                <!-- 中文輸入 -->
+                <label for="question">中文：</label><br>
+
+                <input
+                    type="text"
+                    id="question"
+                    name="question"
+                    placeholder="請輸入中文單字"
+                    value="{{ question }}"
+                    required
+                >
+
+                <br><br>
+
+                <!-- 翻譯結果 -->
+                <label for="answer">翻譯結果：</label><br>
+
+                <input
+                    type="text"
+                    id="answer"
+                    name="answer"
+                    readonly
+                    value="{{ answer }}"
+                >
+
+                <br><br>
+
+                <!-- 按鈕 -->
                 <input type="submit" value="送出">
-                <input type="button" value="回首頁" onclick="window.location.href='/'">
+
+                <input
+                    type="button"
+                    value="回首頁"
+                    onclick="window.location.href='/'"
+                >
+
             </form>
+
         </div>
     </section>
+
 </body>
 </html>
