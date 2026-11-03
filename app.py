@@ -1,11 +1,12 @@
+
 from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
-# 建立中韓題庫
+# 中韓題庫
 zh_ko_dict = {
     "你好": "안녕하세요",
-    "안녕하세요" : "你好",
+    "안녕하세요": "你好",
     "謝謝": "감사합니다",
     "對不起": "죄송합니다",
     "早安": "좋은 아침",
@@ -17,7 +18,7 @@ zh_ko_dict = {
     "愛": "사랑"
 }
 
-# 建立中日題庫
+# 中日題庫
 zh_jp_dict = {
     "你好": "こんにちは",
     "こんにちは": "你好",
@@ -40,37 +41,52 @@ def index():
 def competition():
     return render_template('competition.html')
 
-# 使用 dict 作為中韓翻譯的題庫
+
+# 合併中韓、中日翻譯功能
 @app.route('/ask', methods=['GET', 'POST'])
 def ask():
     if request.method == 'POST':
-        # 2. 讀取學生的問題###^#@#Q%#@
-        question1 = request.form.get('question', '').strip()
-        # 3. 查詢題庫的對應答案
-        # answer1 = zh_ko_dict.get(question, "抱歉，我目前沒有這個詞的韓文對應。")
 
-        answer1 = zh_ko_dict[question1]
-        # 4. 回傳答案給學生
-        return render_template('ask.html', question=question1, answer=answer1)
-    # GET 時給空白欄位
-    return render_template('ask.html', question="", answer="")
+        # 取得學生輸入的問題
+        question = request.form.get('question', '').strip()
+
+        # 取得選擇的語言
+        language = request.form.get('language', 'ko')
+
+        # 根據語言選擇題庫
+        if language == 'ko':
+            dictionary = zh_ko_dict
+            language_name = "韓文"
+        elif language == 'jp':
+            dictionary = zh_jp_dict
+            language_name = "日文"
+        else:
+            dictionary = {}
+            language_name = "未知語言"
+
+        # 查詢答案
+        answer = dictionary.get(
+            question,
+            f"抱歉，我目前沒有這個詞的{language_name}對應。"
+        )
+
+        # 回傳答案
+        return render_template(
+            'ask.html',
+            question=question,
+            answer=answer
+        )
+
+    # GET 時顯示空白欄位
+    return render_template(
+        'ask.html',
+        question="",
+        answer=""
+    )
 
 
-
-# 使用 dict 作為中日翻譯的題庫
-@app.route('/ask2', methods=['GET', 'POST'])
-def ask2():
-    if request.method == 'POST':
-        # 2. 讀取學生的問題
-        question1 = request.form.get('question', '').strip()
-        # 3. 查詢題庫的對應答案
-        # answer1 = zh_jp_dict.get(question, "抱歉，我目前沒有這個詞的日文對應。")
-
-        answer1 = zh_jp_dict[question1]
-        # 4. 回傳答案給學生
-        return render_template('ask2.html', question=question1, answer=answer1)
-    # GET 時給空白欄位
-    return render_template('ask2.html', question="", answer="")
+if __name__ == '__main__':
+    app.run(debug=True)
 
 #改成互動 4/14
 @app.route('/stock', methods=['GET', 'POST'])
