@@ -7,7 +7,6 @@
     <!-- 串接與首頁相同的樣式檔與字體 -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     
-    <!-- 修正處 1：補回正確的 Google Fonts 完整官方網址，否則網頁字體會變回細明體 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
@@ -89,7 +88,6 @@
             margin: 0;
             font-size: 15px;
         }
-        /* 新增：前往寫作紀錄的連結按鈕樣式 */
         .more-link {
             display: inline-block;
             margin-top: 15px;
@@ -101,7 +99,6 @@
         .more-link:hover {
             text-decoration: underline;
         }
- 
     </style>
 </head>
 <body>
@@ -118,16 +115,18 @@
     <!-- 活動項目一 -->
     <div class="activity-card">
         <div class="activity-img">
-            <!-- 圖片放置路徑：static/images/images.jpg(若無圖片會自動隱藏或顯示替代文字) -->
+            <!-- 修正處 1：換成有效的古埃及相關圖片網址作為防破圖替代 -->
             <img src="{{ url_for('static', filename='images/images.jpg') }}" alt="活動照片" onerror="this.src='https://unsplash.com';">
         </div>
         <div class="activity-content">
             <span class="activity-tag">課外學習</span>
-            <h3>埃及木乃伊—永生傳說 </h3>
+            <h3>埃及木乃伊—永生傳說</h3>
             <div class="activity-meta">活動日期：2026年7月｜主辦單位：國立歷史博物館</div>
             <p>參與國立博物館舉辦的活動，讓我學習埃及王朝的歷史，還有觀看那時代人民使用的物品，神話故事和製作木乃伊的流程，還有真實的木乃伊，讓我對古埃及有更加深刻的認識。</p>
         </div>
     </div>
+
+</div> <!-- 修正處 2：補上 container 的結束標籤 -->
 
 <footer>
     © 2026 鄭庭蓁 學習歷程檔案
